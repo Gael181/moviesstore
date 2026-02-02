@@ -28,3 +28,7 @@ urlpatterns = [
 ]
 urlpatterns += static(settings.MEDIA_URL,
     document_root=settings.MEDIA_ROOT)
+
+#python3 manage.py runserver
+#python3 manage.py makemigrations
+#python3 manage.py migrate
