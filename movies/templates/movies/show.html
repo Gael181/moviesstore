@@ -44,7 +44,7 @@
               {{ review.date }}
             </h6>
             <p class="card-text">{{ review.comment }}</p>
-            {% if user.is_authenticated and user == review.user %}
+            {% if user.is_authenticated %}
             <a class="btn btn-primary"
               href="{% url 'movies.edit_review' id=template_data.movie.id review_id=review.id %}">Edit
             </a>
@@ -52,10 +52,10 @@
               href="{% url 'movies.delete_review' id=template_data.movie.id review_id=review.id %}">Delete
             </a>
             <form method="POST"
-                    action="{%url 'movies.report_reviews' id=review.id %}"
+                    action="{% url 'movies.report_review' id=review.id %}"
                     style = "display:inline;">
                 {% csrf_token %}
-                <button type="submit" class="btn btn_warning">Report</button>
+                <button type="submit" class="btn btn-warning">Report</button>
             </form>
             {% endif %}
           </li>
